@@ -1,0 +1,49 @@
+header { 
+    display: flex;
+    position: fixed; 
+    background-color: rgb(0, 0, 191); 
+    top: 0; 
+    right: 0;
+    left: 0; 
+    height: 40px;
+    align-items: center;
+    justify-content:space-around;
+    
+}
+
+nav {
+    display: flex;
+    position: fixed;
+
+    right: 0; 
+    left: 0; 
+    bottom: 0;
+    height: 50px;
+
+
+    background-color: white;
+    border-width: 1 0 0 0;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.98);
+
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden;
+
+}
+
+nav button {
+    height: 100%;
+    width: 100%;
+    
+    background-color: transparent;
+    border-width: 0;
+    border-right-width: 1px;
+    border-color: rgba(211, 211, 211, 0.182);
+    cursor: pointer;
+    transition: background-color 0.4s;
+
+}
+
+nav button:active{
+    background-color: lightgray;
+}
