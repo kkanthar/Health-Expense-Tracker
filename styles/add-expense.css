@@ -1,0 +1,30 @@
+main {
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.dropdown-button{
+    border-color: white;
+    border-style: inset;
+    background-color: rgb(20, 69, 99);
+    color: white;
+    font-size: 17px;
+    padding: 5px 10px;
+    border-radius: 13px;
+}
+
+
+.dropdown-content {
+    display: none;
+    cursor:default;
+}
+
+.dropdown-content p:hover{
+    background-color: lightgray;
+
+}
+.dropdown-content.show{
+    display: block;
+}

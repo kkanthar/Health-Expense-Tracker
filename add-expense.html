@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+
+<html>
+    <head>
+        <title> Add Expense </title>
+
+        <link rel = "stylesheet" href = "styles/header.css">
+        <link rel = "stylesheet" href = "styles/nav.css">
+        <link rel = "stylesheet" href = "styles/general.css">
+        <link rel = "stylesheet" href = "styles/add-expense.css">
+
+
+    </head>
+
+    <body>
+
+        <header> 
+            <p class = "title"> </p>
+        </header>
+
+
+        <nav>
+            <a href = "index.html"> <button id = "navButton">My Expenses</button></a>
+        </nav>
+
+        <main>
+
+            <h2> Type </h2>
+
+            <div class = "dropdown">
+                <button class = "dropdown-button" id = "dropdownButton"> Types </button>
+                <div class = "dropdown-content" id = "dropdownContent">
+                    <p onclick = "changeButtonText('Prescription')"> Prescription</p>
+                    <p onclick = "changeButtonText('Counter Medicine')"> Counter Medicine</p>
+                    <p onclick = "changeButtonText('Hospital Visits')"> Hospital Visits</p>
+                    <p onclick = "changeButtonText('Other')"> Other </p>
+                </div>
+            </div>
+            <h2> Name </h2>
+            <input type = "textbar" placeholder = "Name" id = "expenseName">
+            <h2> Location </h2>
+            <input type = "textbar" placeholder = "Location" id = "expenseLocation">
+            <h2> Date </h2>
+            <input type = "date" placeholder = "Name" id = "expenseDate">
+
+            <h2> Recurs? </h2>
+
+            <button id = "addButton" class = "add-details-button"> Add </button>
+
+        </main>
+
+    <script src = "scripts/addExpense.js"></script>
+    <script src = "scripts/buttons.js"> </script>
+    </body> 
+
+
+
+</html>
+
+
