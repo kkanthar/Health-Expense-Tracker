@@ -4,23 +4,30 @@ const addButton = document.getElementById('addButton');
 addButton.addEventListener('click', () => {
 
 
-    const expenseType = document.getElementById('dropdownButton').innerText;
+    const expenseType = document.getElementById('dropdownButton').value;
     const expenseName = document.getElementById('expenseName').value;
     const expenseLocation = document.getElementById('expenseLocation').value;
     const expenseDate = document.getElementById('expenseDate').value;
+    const expenseCost = document.getElementById('expenseCost').value;
 
+
+    if (!expenseType || !expenseName || !expenseLocation || !expenseDate){
+        alert('Please fill in all fields');
+        return;
+    }
 
     const expenseData = {
         type: expenseType,
         name: expenseName,
         location: expenseLocation,
-        date: expenseDate
+        date: expenseDate,
+        cost: expenseCost
     }; 
 
-
-    const expenseKey = "healthTrack.user.expenseData." + expenseName + "" + expenseLocation + "" + expenseDate;
-        localStorage.setItem(expenseKey, JSON.stringify(expenseData));
-    alert("This works 1");
+    let expenses = JSON.parse(localStorage.getItem("healthTrack.user.expenseData")) || [];
+    expenses.push(expenseData);
+    localStorage.setItem("healthTrack.user.expenseData", JSON.stringify(expenses));
+    alert('working!')
 
     //Testing Code
     const storedData = localStorage.getItem(expenseKey);

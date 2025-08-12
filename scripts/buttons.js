@@ -10,6 +10,7 @@ dropdownButton.addEventListener('click', () => {
 function changeButtonText(text){
 
     dropdownButton.innerText = text;
+    dropdownButton.value = text;
     dropdownContent.classList.remove('show');
 
 

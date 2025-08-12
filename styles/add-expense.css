@@ -1,30 +1,67 @@
 main {
-    padding: 20px 20px;
+    padding: 50px 20px;
     display: flex;
     flex-direction: column;
     overflow: scroll;
 }
 
+h2{
+    font-size: 15px;
+    font-family: arial;
+    font-weight: 100;
+    margin: 10px 0px;
+    color: rgb(131, 131, 131);
+}
+
 .dropdown-button{
+    position: relative;
     border-color: white;
-    border-style: inset;
+    border-style: none;
     background-color: rgb(20, 69, 99);
     color: white;
-    font-size: 17px;
+    font-size: 15px;
     padding: 5px 10px;
     border-radius: 13px;
+    margin-top: 7px;
+    cursor: pointer;
 }
 
 
 .dropdown-content {
     display: none;
-    cursor:default;
+    position: absolute;
+    cursor: default;
+
 }
 
 .dropdown-content p:hover{
     background-color: lightgray;
+    
+
+    
 
 }
 .dropdown-content.show{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    background-color: darkgray;
+    height: 50px;
+    overflow: scroll;
+    border-radius: 3px;
+    padding: 5px 7px;
+}
+
+.product-section{
+    display: grid;
+    grid-template-columns: 1.1fr 10fr;
+    align-items: center;
+    gap: 2%;
+    
+}
+
+
+
+.name-section{
+    display: flex;
+    flex-direction: column;
 }

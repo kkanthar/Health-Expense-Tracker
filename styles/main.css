@@ -40,3 +40,35 @@ main a{
     filter: brightness(0%);
     
 }
+
+.expense-container{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+}
+
+.expense-template{
+    display: flex;
+    display: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 1% 2%;
+    border-radius: 10px;
+}
+
+.expense-header{
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+}
+
+.expense-name{
+    font-size: 20px;
+}
+
+.expense-subsection{
+    display: flex;
+    justify-content: space-between;
+}
