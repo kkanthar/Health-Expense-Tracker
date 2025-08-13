@@ -40,25 +40,43 @@
 
                 <div class = "name-section"> 
                     <h2> Name </h2>
-                    <input type = "textbar" id = "expenseName" class = "expense-name">
+                    <input type = "textbar" id = "expenseName" class = "expense-name" autocomplete="off">
                 </div>
             </div>
-            <h2> Location </h2>
-            <input type = "textbar" id = "expenseLocation">
-            <h2> Date </h2>
-            <input type = "date"  id = "expenseDate">
+
             <h2> Cost </h2>
-            <div class = "cost-cotiainer">
-                <input type = "textbar"  id = "expenseCost">
+            <div class = "cost-container">
+                <img src = "icons/money-icon.svg" class = "money-icon">
+                <input class = "expense-textbar" type = "number"  id = "expenseCost" autocomplete="off">
+            </div>
+
+            <div class = "date-location-container"> 
+                <div> 
+                    <h2> Date </h2>
+                    <div class = "date-container">
+                        <img src = "icons/calendar-icon.svg" class = "calendar-icon">
+                        <input type = "date"  id = "expenseDate" class = "date-textbar">
+                    </div>
+                </div>
+                <div> 
+                    <h2> Location </h2>
+                    <div class = "location-container">
+                        <img src = "icons/location-icon.svg" class = "location-icon">
+                        <input type = "textbar" id = "expenseLocation" autocomplete="off" class = "location-textbar">
+                    </div>
+                </div>
+
+
             </div>
             <h2> Recurs? </h2>
 
-            <button id = "addButton" class = "add-details-button"> Add </button>
+            <button id = "addButton" class = "add-details-button"> &#43; </button>
 
         </main>
 
     <script src = "scripts/addExpense.js"></script>
     <script src = "scripts/buttons.js"> </script>
+
     </body> 
 
 
