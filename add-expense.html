@@ -30,10 +30,25 @@
                     <div class = "dropdown">
                         <button class = "dropdown-button" id = "dropdownButton"> Types v</button>
                         <div class = "dropdown-content" id = "dropdownContent">
-                            <p onclick = "changeButtonText('Prescription')"> Prescription</p>
-                            <p onclick = "changeButtonText('Counter Medicine')"> Counter Medicine</p>
-                            <p onclick = "changeButtonText('Hospital Visits')"> Hospital Visits</p>
-                            <p onclick = "changeButtonText('Other')"> Other </p>
+                            <div class = "dropdown-item" onclick = "changeButtonText('Prescription')"> 
+                                <p style = "background-color: rgb(221, 37, 0)"> Prescription</p>
+                            </div>
+
+                            <div class = "dropdown-item" onclick = "changeButtonText('Counter Medicine')">
+                                <p style = "background-color: rgb(255, 193, 7)"> Counter Medicine</p>
+                            </div>
+
+                            <div class = "dropdown-item" onclick = "changeButtonText('Check Up')"> 
+                                <p style = "background-color: rgb(76, 175, 80)"> Check-up </p>
+                            </div>
+
+                            <div class = "dropdown-item" onclick = "changeButtonText('Insurance')">
+                                <p style = "background-color: rgb(33, 150, 243)" onclick = "changeButtonText('Insurance')"> Insurance </p>
+                            </div>
+
+                            <div class = "dropdown-item" onclick = "changeButtonText('Other')">
+                                <p style = "background-color: rgb(158, 158, 158)" > Other </p>
+                            </div>
                         </div>
                     </div>
                 </div>

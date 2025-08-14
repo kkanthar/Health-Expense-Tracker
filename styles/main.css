@@ -1,5 +1,5 @@
 main {
-    padding: 20px 20px;
+    padding: 20px 20px 85px 20px;
     display: flex;
     flex-direction: column;
     overflow: scroll;
@@ -49,13 +49,38 @@ main a{
 }
 
 .expense-template{
-    display: flex;
     display: none;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
     flex-direction: column;
     row-gap: 20px;
-    padding: 1% 2%;
+    padding: 3.5% 2% 1% 2%;
     border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.expense-template:hover .type-header{
+    opacity: 0.9;
+}
+
+.type-header{
+    display: flex;
+    gap: 2%;
+    position: absolute;
+    color: white;
+    background-color: black;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 1px 0px 1px 20px;
+    font-size: 1.9vh;
+    opacity: 65%;
+}
+
+.type-icon{
+    width: 2vh;
+  
+    object-fit: contain;
 }
 
 .expense-header{
