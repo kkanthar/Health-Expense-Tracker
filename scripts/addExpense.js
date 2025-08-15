@@ -27,14 +27,7 @@ addButton.addEventListener('click', () => {
     let expenses = JSON.parse(localStorage.getItem("healthTrack.user.expenseData")) || [];
     expenses.push(expenseData);
     localStorage.setItem("healthTrack.user.expenseData", JSON.stringify(expenses));
-    alert('working!')
-
-    //Testing Code
-    const storedData = localStorage.getItem(expenseKey);
-    const myParsedObject = JSON.parse(storedData);
-    alert(storedData);
-    
-
+    window.top.location.reload();
 })
 
 

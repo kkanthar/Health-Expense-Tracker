@@ -27,12 +27,15 @@
         <main>
             <h1> My Expenses </h1>
 
-            <a href = "add-expense.html"> 
-                <button class = "add-expense-button"> 
-                    <p> Add Expense</p>
-                    <img class = "add-icon" src = "icons/add-icon.svg">
-                </button>
-            </a>
+            
+            <button id = "addExpenseButton" class = "add-expense-button"> 
+                <p> Add Expense</p>
+                <img class = "add-icon" src = "icons/add-icon.svg">
+            </button>
+            <iframe src = "" id = "addExpense" class = "add-expense"></iframe>
+            <button id = "exitAddExpense" class = "exit-button"> X </button>
+            <div id = "backdropCover" class = "backdrop-cover"> </div>
+        
 
             <section id = "expenseContainer" class = "expense-container">
                 <div id = "expenseTemplate" class = "expense-template">

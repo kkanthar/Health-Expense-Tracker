@@ -31,6 +31,7 @@ main a{
     transition: opacity 0.15s, background-color 0.15s;
 }
 
+
 .add-expense-button:hover{
     opacity: 70%;
 }
@@ -39,6 +40,57 @@ main a{
     width: 25px;
     filter: brightness(0%);
     
+}
+
+.add-expense{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 70%;
+    width: 60%;
+
+    border-radius: 13px;
+    border: none;
+    
+    background-color: white;
+    z-index: 200;
+
+}
+
+
+.exit-button{
+
+    display: none;
+    position: absolute;
+    top: 16%;
+    left: 77%;
+    clip-path: circle(40%);
+    border: none;
+    background-color: white;
+    font-size: 12px;
+
+    cursor: pointer;
+    z-index: 300;
+}
+
+.exit-button:hover{
+    background-color: rgba(255, 0, 0, 0.679);
+}
+
+.backdrop-cover{
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    z-index: 100;
+
+    background-color: rgba(0, 0, 0, 0.263);
+    backdrop-filter: blur(0.4px);
 }
 
 .expense-container{
