@@ -1,0 +1,102 @@
+<!DOCTYPE html> 
+
+<html>
+    <head>
+        <title> Edit Expense </title>
+        <link rel = "stylesheet" href = "styles/header.css">
+        <link rel = "stylesheet" href = "styles/general.css">
+        <link rel = "stylesheet" href = "styles/edit-expense.css">
+
+
+    </head>
+
+    <body>
+
+        <header> 
+            <h1> Edit Expense </h1>
+        </header>
+
+
+   
+
+        <main>
+
+            <div class = "product-section"> 
+                 
+                <div class = "dropdown">
+                    <button class = "dropdown-button" id = "dropdownButton"> Types &#x290B;</button>
+                    <div class = "dropdown-content" id = "dropdownContent">
+                        <div class = "dropdown-item" onclick = "changeButtonText('Prescription')"> 
+                            <p style = "background-color: rgb(221, 37, 0)"> Prescription</p>
+                        </div>
+
+                        <div class = "dropdown-item" onclick = "changeButtonText('Counter Medicine')">
+                            <p style = "background-color: rgb(255, 193, 7)"> Counter Medicine</p>
+                        </div>
+
+                        <div class = "dropdown-item" onclick = "changeButtonText('Check Up')"> 
+                            <p style = "background-color: rgb(76, 175, 80)"> Check-up </p>
+                        </div>
+
+                        <div class = "dropdown-item" onclick = "changeButtonText('Insurance')">
+                            <p style = "background-color: rgb(33, 150, 243)" onclick = "changeButtonText('Insurance')"> Insurance </p>
+                        </div>
+
+                        <div class = "dropdown-item" onclick = "changeButtonText('Other')">
+                            <p style = "background-color: rgb(158, 158, 158)" > Other </p>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class = "name-section"> 
+                    <h2> Name </h2>
+                    <input type = "textbar" id = "expenseName" class = "expense-name" autocomplete="off">
+                </div>
+            </div>
+            <div> 
+                <h2> Cost </h2>
+                <div class = "cost-container">
+                    <img src = "icons/money-icon.svg" class = "money-icon">
+                    <input class = "expense-textbar" type = "number"  id = "expenseCost" autocomplete="off">
+                </div>
+            </div>
+
+            <div class = "date-location-container"> 
+                <div> 
+                    <h2> Date </h2>
+                    <div class = "date-container">
+                        <img src = "icons/calendar-icon.svg" class = "calendar-icon">
+                        <input type = "date"  id = "expenseDate" class = "date-textbar">
+                    </div>
+                </div>
+                <div> 
+                    <h2> Location </h2>
+                    <div class = "location-container">
+                        <img src = "icons/location-icon.svg" class = "location-icon">
+                        <input type = "textbar" id = "expenseLocation" autocomplete="off" class = "location-textbar">
+                    </div>
+                </div>
+
+
+            </div>
+            <h2> Recurs? </h2>
+
+            <button id = "updateButton" class = "update-button"> Update Expense </button>
+            <button id = "removeButton" class = "remove-button"> Remove </button>
+
+        </main>
+
+    <script src = "scripts/loadExpenseDetails.js"></script>
+    <script src = "scripts/buttons-editExpense.js"></script>
+    <script src = "scripts/removeExpense.js"></script>
+    <script src = "scripts/updateExpense.js"></script>
+    
+
+    </body> 
+
+
+
+</html>
+
+

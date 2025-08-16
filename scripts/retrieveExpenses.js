@@ -5,10 +5,12 @@ window.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('expenseContainer'); 
 
 
-    expenses.forEach(expense => {
+    expenses.forEach((expense, index) => {
         const clone = template.cloneNode(true);
         clone.style.display = "flex";
         clone.removeAttribute("id");
+        clone.setAttribute("data-expense-index", index);
+        
 
         clone.querySelector(".expense-name").textContent = expense.name;
         clone.querySelector(".expense-type").textContent = expense.type;

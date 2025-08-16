@@ -2,7 +2,6 @@ main {
     padding: 20px 20px 85px 20px;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
 }
 
 main a{
@@ -59,11 +58,29 @@ main a{
 
 }
 
+.edit-expense{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+
+
+    height: 70%;
+    width: 60%;
+
+    border-radius: 13px;
+    border: none;
+    
+    background-color: white;
+    z-index: 200;
+}
+
 
 .exit-button{
 
     display: none;
-    position: absolute;
+    position: fixed;
     top: 16%;
     left: 77%;
     clip-path: circle(40%);
@@ -109,6 +126,7 @@ main a{
     border-radius: 10px;
     overflow: hidden;
     position: relative;
+    cursor: pointer;
 }
 
 .expense-template:hover .type-header{

@@ -26,16 +26,15 @@
 
         <main>
             <h1> My Expenses </h1>
+            <div id = "backdropCover" class = "backdrop-cover"> </div>
 
-            
             <button id = "addExpenseButton" class = "add-expense-button"> 
                 <p> Add Expense</p>
                 <img class = "add-icon" src = "icons/add-icon.svg">
             </button>
             <iframe src = "" id = "addExpense" class = "add-expense"></iframe>
             <button id = "exitAddExpense" class = "exit-button"> X </button>
-            <div id = "backdropCover" class = "backdrop-cover"> </div>
-        
+
 
             <section id = "expenseContainer" class = "expense-container">
                 <div id = "expenseTemplate" class = "expense-template">
@@ -53,15 +52,17 @@
                         <p id = "expenseDate" class = "expense-date">  </p>
                     </div>
                 </div>
-
-
             </section>
+            <iframe src = "" id = "editExpense" class = "edit-expense"></iframe>
+            <button id = "exitEditExpense" class = "exit-button"> X </button>
+
 
         </main>
 
 
-    <script src = "scripts/buttons.js"> </script>
+    <script src = "scripts/buttons-main.js"> </script>
     <script src = "scripts/retrieveExpenses.js"></script>
+    <script src = "scripts/removeExpense.js"></script>
     </body>
 
 </html>
