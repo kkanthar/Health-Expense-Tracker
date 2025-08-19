@@ -8,11 +8,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const addExpenseButton = document.getElementById('addExpenseButton');
     const exitAddExpenseButton = document.getElementById('exitAddExpense');
     const backdropCover = document.getElementById('backdropCover');
+    
+
+
 
     addExpenseButton.addEventListener('click', () => {
         addExpense.style.display = "block";
         addExpense.src = "add-expense.html";
+
+        //To Position the exit button relative to the iframe
+        const addExpenseRect = addExpense.getBoundingClientRect();
+        const buttonTop = addExpenseRect.top + 5;
+        const buttonLeft = addExpenseRect.left + addExpenseRect.width - 25; 
+        
         exitAddExpenseButton.style.display = "block";
+        exitAddExpenseButton.style.top = `${buttonTop}px`;
+        exitAddExpenseButton.style.left = `${buttonLeft}px`;
+
         backdropCover.style.display = "block";
         document.body.style.overflow = "hidden";
     });
@@ -46,7 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             editExpense.style.display = "block";
             editExpense.src = "edit-expense.html";
+
             exitEditExpenseButton.style.display = "block";
+            //To Position the exit button relative to the iframe
+            const editExpenseRect = editExpense.getBoundingClientRect();
+            const buttonTop = editExpenseRect.top + 5;
+            const buttonLeft = editExpenseRect.left + editExpenseRect.width - 25; 
+            exitEditExpenseButton.style.top = `${buttonTop}px`;
+            exitEditExpenseButton.style.left = `${buttonLeft}px`;
+
+
             backdropCover.style.display = "block";
         }
     })

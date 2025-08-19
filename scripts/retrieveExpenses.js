@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('expenseContainer'); 
 
 
+
     expenses.forEach((expense, index) => {
         const clone = template.cloneNode(true);
         clone.style.display = "flex";
@@ -16,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
         clone.querySelector(".expense-type").textContent = expense.type;
         clone.querySelector(".expense-location").textContent = expense.location;
         clone.querySelector(".expense-date").textContent = expense.date;
-        clone.querySelector(".expense-cost").textContent = "$" + expense.cost;
+        clone.querySelector(".expense-cost").textContent = expense.cost;
 
 
         let typeHeader = clone.querySelector(".type-header");
@@ -43,6 +44,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
         container.prepend(clone);
     })
+
+    if (expenses.length === 0){
+        const addExpenseButtonText = document.getElementById('addExpenseButtonText');
+        console.log(addExpenseButtonText); 
+        addExpenseButtonText.textContent = "Add Your First Expense!";
+        
+
+
+    }
 
 
 })

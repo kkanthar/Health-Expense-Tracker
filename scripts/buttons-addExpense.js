@@ -24,13 +24,9 @@ function changeButtonText(text){
 
 
     if (text === "Prescription"){
-        
         dropdownButton.style.backgroundColor = "rgb(221, 37, 0)";
-        
     } else if (text === "Counter Medicine"){
         dropdownButton.style.backgroundColor = "rgb(255, 193, 7)";
-        
-
     } else if (text === "Check Up"){
         dropdownButton.style.backgroundColor = "rgb(76, 175, 80)";
     } else if (text === "Insurance"){

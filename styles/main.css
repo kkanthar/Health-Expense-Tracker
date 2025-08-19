@@ -1,3 +1,4 @@
+
 main {
     padding: 20px 20px 85px 20px;
     display: flex;
@@ -41,13 +42,14 @@ main a{
     
 }
 
+
 .add-expense{
     display: none;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 70%;
+    height: 500px;
     width: 60%;
 
     border-radius: 13px;
@@ -66,7 +68,7 @@ main a{
     transform: translate(-50%, -50%); 
 
 
-    height: 70%;
+    height: 500px;
     width: 60%;
 
     border-radius: 13px;
@@ -81,8 +83,7 @@ main a{
 
     display: none;
     position: fixed;
-    top: 16%;
-    left: 77%;
+ 
     clip-path: circle(40%);
     border: none;
     background-color: white;
@@ -122,7 +123,8 @@ main a{
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
     flex-direction: column;
     row-gap: 20px;
-    padding: 3.5% 2% 1% 2%;
+    padding: 30px 1vw 10px 1vw;
+    min-height: 60px;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
@@ -135,7 +137,7 @@ main a{
 
 .type-header{
     display: flex;
-    gap: 2%;
+    gap: 1.5vw;
     position: absolute;
     color: white;
     background-color: black;
@@ -143,12 +145,12 @@ main a{
     right: 0;
     left: 0;
     padding: 1px 0px 1px 20px;
-    font-size: 1.9vh;
+    font-size: 15px;
     opacity: 65%;
 }
 
 .type-icon{
-    width: 2vh;
+    width: 16px;
   
     object-fit: contain;
 }
@@ -157,6 +159,23 @@ main a{
     display: flex;
     justify-content: space-between;
     font-size: 25px;
+}
+.expense-cost{
+    font-weight: bold;
+    position: relative;
+}
+
+.expense-cost::before{
+    content: '$';
+    position: absolute;
+    transform: scale(0.82);
+    left: -13px;
+    top: -2.5px;
+
+    font-size: inherit;
+    
+
+
 }
 
 .expense-name{
