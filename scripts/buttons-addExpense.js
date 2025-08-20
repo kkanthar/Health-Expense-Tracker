@@ -1,5 +1,5 @@
 const dropdownButton = document.getElementById('dropdownButton');
-const dropdownContent = document.getElementById('dropdownContent')
+const dropdownContent = document.getElementById('dropdownContent');
 
 
 
@@ -37,3 +37,8 @@ function changeButtonText(text){
 
 
 }
+
+//To change date input to today
+
+const expenseDate = document.getElementById("expenseDate");
+expenseDate.valueAsDate = new Date();

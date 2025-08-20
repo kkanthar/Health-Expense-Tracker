@@ -3,6 +3,10 @@
 <html>
     <head>
         <title> HeatlthTrack Expense Manager</title>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
         <link rel = "stylesheet" href = "styles/header.css">
         <link rel = "stylesheet" href = "styles/nav.css">
@@ -14,8 +18,10 @@
     <body>
 
         <header> 
-            <p class = "title"> </p>
-            
+            <div class = "logo"> 
+                <img class = "logo-icon" src = "Logos/favicon.png">
+                <img class ="logotitle" src = "Logos/appname.png">
+            </div>
         </header>
 
 
@@ -29,7 +35,7 @@
             <div id = "backdropCover" class = "backdrop-cover"> </div>
 
             <button id = "addExpenseButton" class = "add-expense-button"> 
-                <p id = "addExpenseButtonText"> Add Expense</p>
+                <p class = "add-expense-button-text" id = "addExpenseButtonText"> Add Expense</p>
                 <img class = "add-icon" src = "icons/add-icon.svg">
             </button>
           

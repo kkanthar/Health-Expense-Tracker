@@ -12,30 +12,11 @@ window.addEventListener('DOMContentLoaded', () => {
         clone.removeAttribute("id");
         clone.setAttribute("data-expense-index", index);
         
-        let dateObject = new Date(expense.date);
-        let today = new Date();
-
-        let formattedDate;
-
-        if (today.getFullYear() === dateObject.getFullYear()) {
-            formattedDate = dateObject.toLocaleDateString('en-US', {
-                month: 'short',
-                day: 'numeric'
-            });
-        } else {
-            formattedDate = dateObject.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric'
-            });
-        }
-
-
 
         clone.querySelector(".expense-name").textContent = expense.name;
         clone.querySelector(".expense-type").textContent = expense.type;
         clone.querySelector(".expense-location").textContent = expense.location;
-        clone.querySelector(".expense-date").textContent = formattedDate;
+        clone.querySelector(".expense-date").textContent = expense.date;
         clone.querySelector(".expense-cost").textContent = expense.cost;
 
 

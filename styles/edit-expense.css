@@ -2,22 +2,23 @@ main {
     padding: 30px 20px;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
     row-gap: 14px;
 }
 
 h1{
     color: white;
     font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
 }
 
 h2{
     font-size: 19px;
     padding-left: 4px;
-    font-family: arial;
-    font-weight: 100;
+    font-family: "Archivo", sans-serif;
+    font-weight: 300;
     margin: 10px 0px;
-    color: rgb(131, 131, 131);
+    color: rgb(188, 187, 187);
 }
 
 
@@ -27,10 +28,8 @@ input {
     border-color: lightgray;
     padding: 6px 4px;
     font-size: 17px;
-
+    font-family: "Archivo", sans-serif;
 }
-
-
 
 
 .product-section{
@@ -41,10 +40,12 @@ input {
     
 }
 
+
 .dropdown{
     position: relative;
     width: 130px;
 }
+
 
 .dropdown-button{
     width: 100%;
@@ -54,13 +55,38 @@ input {
     font-size: 17px;
     margin-top: 7px;
 
-    background-color: rgb(20, 69, 99);
+    font-family: "Archivo", sans-serif;
+    background-color: rgb(0, 59, 70); 
     color: white;
     
-
+    
+    cursor: pointer;
     z-index: 200;
 
-    cursor: pointer;
+}
+
+.dropdown-button::before{
+    content: "This is the type of medical expense you are adding.";
+    position: absolute;
+    top: -60px;
+    left: 0px;
+    border-radius: 5px;
+    padding: 4px;
+    opacity: 0;
+
+
+    font-size: 14px;
+    
+
+    background-color: lightgray;
+
+    
+
+}
+
+.dropdown-button:hover::before{
+    opacity: 1;
+    transition-delay: 1s;
 }
 
 
@@ -83,7 +109,6 @@ input {
 
 
     cursor: default;
-    overflow: scroll;
     z-index: 100;
 
 }
@@ -104,6 +129,8 @@ input {
     opacity: 78%;
 
 }
+
+
 
 .dropdown-content p{
     width: 95%;
