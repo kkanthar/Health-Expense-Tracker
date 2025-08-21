@@ -8,6 +8,7 @@
         <link rel = "stylesheet" href = "styles/header.css">
         <link rel = "stylesheet" href = "styles/nav.css">
         <link rel = "stylesheet" href = "styles/general.css">
+        <link rel = "stylesheet" href = "styles/statistics.css">
 
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,15 +24,50 @@
                 <img class = "logo-icon" src = "Logos/favicon.png">
                 <img class ="logotitle" src = "Logos/appname.png">
             </div>
-            
         </header>
+
+        
+        <main>
+            <h1>My Analytics</h1>
+
+            <section class = "average-spending">
+                <div class = "average-spending-header"> 
+                    <h2 class = "average-spending-title"> Average Spending per </h2> 
+                    <div class = "dropdown-period"> 
+                        <button class = "dropdown-button-period" id = "dropdownButtonPeriod"> Month </button>
+                        <div class = "dropdown-period-content" id = "dropdownPeriodContent"> 
+                            <p onclick = "changeButtonText('Day'); calculateAverageSpending('Day')"> Day </p>
+                            <p onclick = "changeButtonText('Week'); calculateAverageSpending('Week')"> Week </p>
+                            <p onclick = "changeButtonText('Month'); calculateAverageSpending('Month')"> Month </p>
+                            <p onclick = "changeButtonText('Year'); calculateAverageSpending('Year')"> Year </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "average-spending-box">
+                    <p id = "averageSpendingCalculation" class = "average-spending-calculation"></p>
+                </div>
+            </section>
+
+            <sectoin> 
+                <h2> Spending Distribution </h2>
+                <div style = "width: 50%; margin: auto">
+                    <canvas id ="spendingDistribution">Your browser does not support the canvas element.</canvas>
+                </div>
+            </sectoin>
+
+            
+           
+        </main>
 
 
         <nav>
             <a href = "index.html"> <button id = "navButton">My Expenses</button></a>
             <a href = "statistics.html"><button id = "navButton">Stats</button></a>
         </nav>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src = "scripts/buttons-statistics.js"></script>
+    <script src = "scripts/statistics.js"></script>
     </body>
 
 </html>

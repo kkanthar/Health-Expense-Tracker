@@ -1,6 +1,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+
+
     //Add an Expense
 
     // When clicking the add expense button, open the iframe
@@ -36,6 +38,18 @@ document.addEventListener('DOMContentLoaded', () => {
         backdropCover.style.display = "none";
         document.body.style.overflow = "auto";
     });
+
+    //If user resizes the window
+    window.addEventListener('resize', () => {
+        const addExpenseRect = addExpense.getBoundingClientRect();
+        const buttonTop = addExpenseRect.top + 5;
+        const buttonLeft = addExpenseRect.left + addExpenseRect.width - 25; 
+        
+        exitAddExpenseButton.style.display = "block";
+        exitAddExpenseButton.style.top = `${buttonTop}px`;
+        exitAddExpenseButton.style.left = `${buttonLeft}px`;
+
+    })
 
 
     //Remove an Expense
@@ -78,6 +92,17 @@ document.addEventListener('DOMContentLoaded', () => {
         backdropCover.style.display = "none";
         document.body.style.overflow = "auto";
         localStorage.removeItem("healthTrack.selectedExpenseIndex");
+
+    })
+
+    window.addEventListener('resize', () => {
+        const editExpenseRect = editExpense.getBoundingClientRect();
+        const buttonTop = editExpenseRect.top + 5;
+        const buttonLeft = editExpenseRect.left + editExpenseRect.width - 25; 
+        
+        exitEditExpenseButton.style.display = "block";
+        exitEditExpenseButton.style.top = `${buttonTop}px`;
+        exitEditExpenseButton.style.left = `${buttonLeft}px`;
 
     })
 
