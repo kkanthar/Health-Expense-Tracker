@@ -7,9 +7,15 @@ addButton.addEventListener('click', () => {
     const expenseType = document.getElementById('dropdownButton').value;
     const expenseName = document.getElementById('expenseName').value;
     const expenseLocation = document.getElementById('expenseLocation').value;
-    const expenseDate = document.getElementById('expenseDate').value;
+    
+    const expenseDateValue = document.getElementById('expenseDate').value;
+    const [year, month, day] = expenseDateValue.split('-').map(Number);
+    const expenseDate = new Date(year, month - 1, day);
+    const timestamp = expenseDate.getTime();
+
     const expenseCost = document.getElementById('expenseCost').value;
 
+    
 
     if (!expenseType || !expenseName || !expenseLocation || !expenseDate){
         alert('Please fill in all fields');
@@ -20,7 +26,7 @@ addButton.addEventListener('click', () => {
         type: expenseType,
         name: expenseName,
         location: expenseLocation,
-        date: expenseDate,
+        date: timestamp,
         cost: expenseCost
     }; 
 

@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
         clone.removeAttribute("id");
         clone.setAttribute("data-expense-index", index);
         
-        let dateObject = new Date(expense.date);
+        let dateObject = new Date(parseInt(expense.date));
         let today = new Date();
 
         let formattedDate;
@@ -66,10 +66,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (expenses.length === 0){
         const addExpenseButtonText = document.getElementById('addExpenseButtonText');
-        console.log(addExpenseButtonText); 
         addExpenseButtonText.textContent = "Add Your First Expense!";
-        
-
 
     }
 

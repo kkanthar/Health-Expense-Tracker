@@ -49,12 +49,131 @@
                 </div>
             </section>
 
-            <sectoin> 
+            <section> 
                 <h2> Spending Distribution </h2>
-                <div style = "width: 50%; margin: auto">
-                    <canvas id ="spendingDistribution">Your browser does not support the canvas element.</canvas>
+                <div style = "width: 100vw; margin: auto">
+                    <canvas width = "500vw" id ="spendingDistribution">Your browser does not support the canvas element.</canvas>
                 </div>
-            </sectoin>
+            </section>
+
+            <section>
+                <h2> Total Spending </h2>
+                
+                <div class = "total-spending"> 
+                    <div class = "total-spending-card">
+                        <div class = "flip-card-inner"> 
+                            <div class = "flip-card-front"> 
+                                <div class = "total-spending-subheading">
+                                    <p class = "total-spending-subheading-title">Day</p>
+                                    <!--<img src = "icons/rotate-icon.svg" class = "rotate-icon">-->
+                                </div>
+                                <div class = "total-spending-input-container">
+                                    <p class = "total-spending-input" id = "totalSpendingInputDay"> xyz</p>
+                                </div>
+                            </div>
+
+                            <div class = "flip-card-back">
+                                <div class = "total-spending-subheading">
+                                    <p class = "total-spending-subheading-title">Day</p>
+                                    <img src = "icons/rotate-icon.svg" class = "rotate-icon" data-target="totalSpendingCompareWeek">
+                                </div>
+
+                                <canvas id = "totalSpendingCompareDay"></canvas>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class = "total-spending-card">
+                        <div class = "flip-card-inner"> 
+                            <div class = "flip-card-front"> 
+                                <div class = "total-spending-subheading">
+                                    <p class = "total-spending-subheading-title">Week</p>
+                                    <!--<img src = "icons/rotate-icon.svg" class = "rotate-icon">-->
+                                </div>
+                                <div class = "total-spending-input-container">
+                                    <p class = "total-spending-input" id = "totalSpendingInputWeek"> xyz</p>
+                                </div>
+                            </div>
+
+                            <div class = "flip-card-back">
+                                <div class = "total-spending-subheading">
+                                    <p class = "total-spending-subheading-title">Week</p>
+                                    <img src = "icons/rotate-icon.svg" class = "rotate-icon">
+                                </div>
+
+                                <canvas id = "totalSpendingCompareWeek"></canvas>
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class = "total-spending-card">
+
+                        <div class = "flip-card-inner">
+                            <div class = "flip-card-front"> 
+                                <div class = "total-spending-subheading">
+                                    <p class = "total-spending-subheading-title">Month</p>
+                                    <!--<img src = "icons/rotate-icon.svg" class = "rotate-icon">-->
+                                </div>
+
+                                <div class = "total-spending-input-container">
+                                    <p class = "total-spending-input" id = "totalSpendingInputMonth"> xyz</p>
+                                </div>
+                            </div>
+
+                            <div class = "flip-card-back">
+
+                                <div class = "total-spending-subheading">
+                                    <p class = "total-spending-subheading-title">Month</p>
+                                    <img src = "icons/rotate-icon.svg" class = "rotate-icon">
+                                </div>
+
+                                <canvas id = "totalSpendingCompareMonth"></canvas>
+
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class = "total-spending-card">
+                        <div class = "flip-card-inner">
+                            <div class = "flip-card-front"> 
+                                <div class = "total-spending-subheading">
+                                    <p class = "total-spending-subheading-title">Year</p>
+                            
+                                    <!--<img src = "icons/rotate-icon.svg" class = "rotate-icon">-->
+
+                                </div>
+
+                                <div class = "total-spending-input-container">
+                                    <p class = "total-spending-input" id = "totalSpendingInputYear"> xyz</p>
+                                </div>
+                            </div>
+
+                            <div class = "flip-card-back">
+
+                                <div class = "total-spending-subheading">
+                                    <p class = "total-spending-subheading-title">Year</p>
+                                    <img src = "icons/rotate-icon.svg" class = "rotate-icon">
+                                </div>
+
+                                <canvas id = "totalSpendingCompareYear"></canvas>
+
+
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </section>
 
             
            

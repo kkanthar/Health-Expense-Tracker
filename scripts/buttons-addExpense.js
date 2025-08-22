@@ -39,6 +39,6 @@ function changeButtonText(text){
 }
 
 //To change date input to today
-
 const expenseDate = document.getElementById("expenseDate");
-expenseDate.valueAsDate = new Date();
+const now = new Date()
+expenseDate.valueAsDate = now;

@@ -8,20 +8,126 @@ let latestDate = null;
 //Grouping spending by type
 const totalsByType = {};
 
+//Total spending per
+let totalSpentDay = 0;
+let totalSpentWeek = 0;
+let totalSpentMonth = 0;
+let totalSpentYear = 0;
+
+/*
+let totalSpentLastDay = 0;
+let totalSpentLastWeek = 0; 
+let totalSpentLastMonth = 0;
+let totalSpentLastYear = 0;
+*/
+
+
+function sameWeek(now, dateToCheck){
+    const startOfWeek = new Date(now);
+    startOfWeek.setDate(now.getDate() - now.getDay());
+    startOfWeek.setHours(0, 0, 0, 0);
+    const endOfWeek = new Date(startOfWeek);
+    endOfWeek.setDate(startOfWeek.getDate() + 7);
+
+    if (dateToCheck >= startOfWeek && dateToCheck < endOfWeek){
+        return true
+    } else {
+        return false
+    }
+
+}
+
+/*
+
+function sameLastWeek(now, dateToCheck){
+    const startOfWeek = new Date(now);
+    startOfWeek.setDate(now.getDate() - now.getDay());
+    startOfWeek.setHours(0, 0, 0, 0);
+
+    const startOfLastWeek = new Date(startOfWeek);
+    startOfLastWeek.setDate(startOfWeek.getDate() - 7);
+
+    const endOfLastWeek = new Date(startOfWeek.getTime() - 1);
+    endOfLastWeek.setDate(startOfWeek.getDate() - 7);
+
+    if (dateToCheck >= startOfLastWeek && dateToCheck < endOfLastWeek){
+        return true
+    } else {
+        return false
+    }
+
+}
+
+*/
+const now = new Date();
 expensesData.forEach(expense => {
+    
     const amount = parseFloat(expense.cost) || 0;
-    const date = new Date(expense.date);
+    const date = new Date(parseInt(expense.date));
     const type = expense.type;
 
 
-    //For average spending
+    //For total spending
+    
+
+    if (now.getFullYear() === date.getFullYear() &&
+           now.getMonth() === date.getMonth() &&
+           now.getDate() === date.getDate()){
+        totalSpentDay += amount;
+    }
+    if (sameWeek(now, date)){
+        totalSpentWeek += amount;
+    }
+    if (now.getMonth() === date.getMonth() && now.getFullYear() === date.getFullYear()){
+        totalSpentMonth += amount;
+    }
+    if (now.getFullYear() === date.getFullYear()){
+        totalSpentYear += amount;
+    }
+
+    /*
+    const yesterday = new Date();
+    yesterday.setDate(now.getDate() - 1)
+
+    const lastMonth = new Date();
+    lastMonth.setMonth(now.getMonth()-1);
+
+    const lastYear = new Date();
+    lastYear.setFullYear(now.getFullYear() - 1);
+
+    if(yesterday.getFullYear() === date.getFullYear() &&
+        yesterday.getMonth() === date.getMonth() &&
+        yesterday.getDate() === date.getDate()){
+
+        totalSpentLastDay += amount;
+
+    } 
+    if (sameLastWeek(now, date)){
+        totalSpentLastWeek += amount;
+    }
+    if (lastMonth.getMonth() === date.getMonth() && lastMonth.getFullYear() === date.getFullYear()){
+        totalSpentLastMonth += amount;
+    }
+
+    if (lastYear.getFullYear() === date.getFullYear()){
+        totalSpentLastYear += amount;
+    }
+
+    */
+
+    
+
+
+
+
+    //For average spending year
     totalSpent += amount;
 
     if (!earliestDate || date < earliestDate){
-        earliestDate = date; 
+        earliestDate = date.getFullYear(); 
     }
     if (!latestDate || date > latestDate){
-        latestDate = date;
+        latestDate = date.getFullYear();
     }
 
     //Totals by type
@@ -33,47 +139,80 @@ expensesData.forEach(expense => {
 
 
 //Initially calculate for monthly average spending
-//Since date gives me in miliseconds I have to convert to appropriate unit of measure
-const daysBetween = Math.floor((latestDate - earliestDate)/(1000 * 60 * 60 * 24));
-const weeksBetween = Math.floor((latestDate-earliestDate)/(1000 * 60 * 60 * 24 * 7));
-const monthsBetween = (latestDate.getFullYear() - earliestDate.getFullYear()) * 12 + (latestDate.getMonth() - earliestDate.getMonth()) + 1;
-const yearsBetween = (latestDate.getFullYear() - earliestDate.getFullYear()) + 1;
 
-let averageMonthlySpending = null;
-if (monthsBetween > 0){
-    averageMonthlySpending = totalSpent/monthsBetween;    
-}
+//Animation for counting up
+function animateValue(obj, start, end, duration){
+    var range = end - start;
+    var minTimer = 50;
+    //calculating how much time is needed for each number
+    var stepTime= Math.abs(Math.floor(duration / range));
 
-//Set monthly spending
-const spendingAverageInput = document.getElementById('averageSpendingCalculation');
-spendingAverageInput.innerText = averageMonthlySpending.toFixed(2);
+    //Check to not go below minTimer
+    stepTime = Math.max(stepTime, minTimer);
 
-function calculateAverageSpending(text){
-    let averageSpending = null;
-    if (text === 'Day'){
-        if (daysBetween > 0){
-            averageSpending = totalSpent/daysBetween;
-        }
-        
+    //get current time and calculate end time
+    var startTime = new Date().getTime();
+    var endTime = startTime + duration;
+    var timer;
 
-    } else if (text === 'Week'){
-        if (weeksBetween > 0){
-            averageSpending = totalSpent/weeksBetween;
+    function run() {
+        var now = new Date().getTime();
+        //This is will how much of range is completed i.e (78% done)
+        var remaining = Math.max(Math.pow((endTime - now) / duration, 2), 0);
+        //This will calculate the current value
+        var value = (end - (remaining * range)).toFixed(2);
+        obj.innerHTML = value;
 
-        }
-
-    } else if (text === 'Month'){
-        averageSpending = averageMonthlySpending;
-
-
-    } else if (text === 'Year'){
-        if (yearsBetween > 0){
-            averageSpending = totalSpent / yearsBetween;
+        if (now >= endTime){
+            obj.innerHTML = end.toFixed(2);
+            clearInterval(timer);
         }
 
     }
 
-    spendingAverageInput.innerText = averageSpending.toFixed(2);
+    timer = setInterval(run, stepTime);
+    run();
+}
+
+//---
+const daysInCurrentMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+const monthsPassedYear = now.getMonth() + 1;
+const numberOfYears = (latestDate - earliestDate) + 1;
+
+
+const averageMonthlySpending = totalSpentYear / monthsPassedYear;
+
+//Set monthly spending
+const spendingAverageInput = document.getElementById('averageSpendingCalculation');
+animateValue(spendingAverageInput, 0, averageMonthlySpending, 700);
+
+function calculateAverageSpending(text){
+    let averageSpending = 0;
+
+
+    if (text === 'Day'){
+        averageSpending = totalSpentMonth / daysInCurrentMonth;
+        
+
+    } else if (text === 'Week'){
+        averageSpending = totalSpentMonth / 4;
+
+    } else if (text === 'Month'){
+        if (monthsPassedYear > 0){
+            averageSpending = totalSpentYear / monthsPassedYear;
+        } else {
+            averageSpending = 0; 
+        }
+
+
+    } else if (text === 'Year'){    
+        if (numberOfYears > 0){
+            averageSpending = totalSpentYear / numberOfYears;
+        }
+
+    }
+
+    animateValue(spendingAverageInput, 0, averageSpending, 500);
 
 }
 
@@ -121,6 +260,8 @@ new Chart(ctx, {
         }]
     }, 
     options: {
+        maintainAspectRatio: false,
+        responsive: true, 
         scales: {
             x: {
                 display: false,
@@ -135,6 +276,31 @@ new Chart(ctx, {
                     display: false
                 }
             }
+        }, 
+        plugins: {
+            tooltip: {
+                animation: {
+                    duration: 150
+                },
+                displayColors: false
+            }
         }
     }
 })
+
+//Total Spending Per Day, Week, Month, Year
+const totalSpendingDay = document.getElementById('totalSpendingInputDay');
+const totalSpendingWeek = document.getElementById('totalSpendingInputWeek');
+const totalSpendingMonth = document.getElementById('totalSpendingInputMonth');
+const totalSpendingYear = document.getElementById('totalSpendingInputYear');
+
+totalSpendingDay.innerText = totalSpentDay;
+totalSpendingWeek.innerText = totalSpentWeek; 
+totalSpendingMonth.innerText = totalSpentMonth;
+totalSpendingYear.innerText = totalSpentYear;
+
+
+
+
+
+
