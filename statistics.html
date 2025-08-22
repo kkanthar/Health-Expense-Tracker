@@ -61,114 +61,60 @@
                 
                 <div class = "total-spending"> 
                     <div class = "total-spending-card">
-                        <div class = "flip-card-inner"> 
-                            <div class = "flip-card-front"> 
-                                <div class = "total-spending-subheading">
-                                    <p class = "total-spending-subheading-title">Day</p>
-                                    <!--<img src = "icons/rotate-icon.svg" class = "rotate-icon">-->
-                                </div>
-                                <div class = "total-spending-input-container">
-                                    <p class = "total-spending-input" id = "totalSpendingInputDay"> xyz</p>
-                                </div>
-                            </div>
 
-                            <div class = "flip-card-back">
-                                <div class = "total-spending-subheading">
-                                    <p class = "total-spending-subheading-title">Day</p>
-                                    <img src = "icons/rotate-icon.svg" class = "rotate-icon" data-target="totalSpendingCompareWeek">
-                                </div>
-
-                                <canvas id = "totalSpendingCompareDay"></canvas>
-                                
-                            </div>
+                        <div class = "total-spending-subheading">
+                            <p class = "total-spending-subheading-title">Today</p>
                         </div>
-
-                    </div>
-
-                    <div class = "total-spending-card">
-                        <div class = "flip-card-inner"> 
-                            <div class = "flip-card-front"> 
-                                <div class = "total-spending-subheading">
-                                    <p class = "total-spending-subheading-title">Week</p>
-                                    <!--<img src = "icons/rotate-icon.svg" class = "rotate-icon">-->
-                                </div>
-                                <div class = "total-spending-input-container">
-                                    <p class = "total-spending-input" id = "totalSpendingInputWeek"> xyz</p>
-                                </div>
-                            </div>
-
-                            <div class = "flip-card-back">
-                                <div class = "total-spending-subheading">
-                                    <p class = "total-spending-subheading-title">Week</p>
-                                    <img src = "icons/rotate-icon.svg" class = "rotate-icon">
-                                </div>
-
-                                <canvas id = "totalSpendingCompareWeek"></canvas>
-
-
-
-                            </div>
+                        <div class = "total-spending-input-container">
+                            <p class = "total-spending-input" id = "totalSpendingInputDay"></p>
+                        </div>
+                        <div class = "compare-spending-chart-container"> 
+                            <canvas id = "totalSpendingCompareDay"></canvas>
                         </div>
 
                     </div>
 
                     <div class = "total-spending-card">
 
-                        <div class = "flip-card-inner">
-                            <div class = "flip-card-front"> 
-                                <div class = "total-spending-subheading">
-                                    <p class = "total-spending-subheading-title">Month</p>
-                                    <!--<img src = "icons/rotate-icon.svg" class = "rotate-icon">-->
-                                </div>
-
-                                <div class = "total-spending-input-container">
-                                    <p class = "total-spending-input" id = "totalSpendingInputMonth"> xyz</p>
-                                </div>
-                            </div>
-
-                            <div class = "flip-card-back">
-
-                                <div class = "total-spending-subheading">
-                                    <p class = "total-spending-subheading-title">Month</p>
-                                    <img src = "icons/rotate-icon.svg" class = "rotate-icon">
-                                </div>
-
-                                <canvas id = "totalSpendingCompareMonth"></canvas>
-
-
-
-                            </div>
+                        <div class = "total-spending-subheading">
+                            <p class = "total-spending-subheading-title">This Week</p>
                         </div>
-
-
+                        <div class = "total-spending-input-container">
+                            <p class = "total-spending-input" id = "totalSpendingInputWeek"></p>
+                        </div>
+                        <div class = "compare-spending-chart-container"> 
+                            <canvas id = "totalSpendingCompareWeek"></canvas>
+                        </div>
                     </div>
 
                     <div class = "total-spending-card">
-                        <div class = "flip-card-inner">
-                            <div class = "flip-card-front"> 
-                                <div class = "total-spending-subheading">
-                                    <p class = "total-spending-subheading-title">Year</p>
-                            
-                                    <!--<img src = "icons/rotate-icon.svg" class = "rotate-icon">-->
-
-                                </div>
-
-                                <div class = "total-spending-input-container">
-                                    <p class = "total-spending-input" id = "totalSpendingInputYear"> xyz</p>
-                                </div>
-                            </div>
-
-                            <div class = "flip-card-back">
-
-                                <div class = "total-spending-subheading">
-                                    <p class = "total-spending-subheading-title">Year</p>
-                                    <img src = "icons/rotate-icon.svg" class = "rotate-icon">
-                                </div>
-
-                                <canvas id = "totalSpendingCompareYear"></canvas>
 
 
-                            </div>
+                        <div class = "total-spending-subheading">
+                            <p class = "total-spending-subheading-title">This Month</p>
+                        </div>
+
+                        <div class = "total-spending-input-container">
+                            <p class = "total-spending-input" id = "totalSpendingInputMonth"></p>
+                        </div>
+
+                        <div class = "compare-spending-chart-container"> 
+                            <canvas id = "totalSpendingCompareMonth"></canvas>
+                        </div>
+                    </div>
+
+                    <div class = "total-spending-card">
+
+                        <div class = "total-spending-subheading">
+                            <p class = "total-spending-subheading-title">This Year</p>
+                        </div>
+
+                        <div class = "total-spending-input-container">
+                            <p class = "total-spending-input" id = "totalSpendingInputYear"></p>
+                        </div>
+        
+                        <div class = "compare-spending-chart-container"> 
+                            <canvas id = "totalSpendingCompareYear"></canvas>
                         </div>
                     
                     </div>

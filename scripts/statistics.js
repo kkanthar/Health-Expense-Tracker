@@ -14,13 +14,10 @@ let totalSpentWeek = 0;
 let totalSpentMonth = 0;
 let totalSpentYear = 0;
 
-/*
 let totalSpentLastDay = 0;
 let totalSpentLastWeek = 0; 
 let totalSpentLastMonth = 0;
 let totalSpentLastYear = 0;
-*/
-
 
 function sameWeek(now, dateToCheck){
     const startOfWeek = new Date(now);
@@ -37,8 +34,6 @@ function sameWeek(now, dateToCheck){
 
 }
 
-/*
-
 function sameLastWeek(now, dateToCheck){
     const startOfWeek = new Date(now);
     startOfWeek.setDate(now.getDate() - now.getDay());
@@ -48,7 +43,6 @@ function sameLastWeek(now, dateToCheck){
     startOfLastWeek.setDate(startOfWeek.getDate() - 7);
 
     const endOfLastWeek = new Date(startOfWeek.getTime() - 1);
-    endOfLastWeek.setDate(startOfWeek.getDate() - 7);
 
     if (dateToCheck >= startOfLastWeek && dateToCheck < endOfLastWeek){
         return true
@@ -58,17 +52,14 @@ function sameLastWeek(now, dateToCheck){
 
 }
 
-*/
-const now = new Date();
 expensesData.forEach(expense => {
-    
     const amount = parseFloat(expense.cost) || 0;
     const date = new Date(parseInt(expense.date));
     const type = expense.type;
 
 
     //For total spending
-    
+    let now = new Date();
 
     if (now.getFullYear() === date.getFullYear() &&
            now.getMonth() === date.getMonth() &&
@@ -85,7 +76,7 @@ expensesData.forEach(expense => {
         totalSpentYear += amount;
     }
 
-    /*
+    //To check if same last day, week, month, year
     const yesterday = new Date();
     yesterday.setDate(now.getDate() - 1)
 
@@ -113,8 +104,6 @@ expensesData.forEach(expense => {
         totalSpentLastYear += amount;
     }
 
-    */
-
     
 
 
@@ -123,10 +112,10 @@ expensesData.forEach(expense => {
     //For average spending year
     totalSpent += amount;
 
-    if (!earliestDate || date < earliestDate){
+    if (!earliestDate || date.getFullYear() < earliestDate){
         earliestDate = date.getFullYear(); 
     }
-    if (!latestDate || date > latestDate){
+    if (!latestDate || date.getFullYear() > latestDate){
         latestDate = date.getFullYear();
     }
 
@@ -175,6 +164,7 @@ function animateValue(obj, start, end, duration){
 }
 
 //---
+const now = new Date();
 const daysInCurrentMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
 const monthsPassedYear = now.getMonth() + 1;
 const numberOfYears = (latestDate - earliestDate) + 1;
@@ -207,7 +197,9 @@ function calculateAverageSpending(text){
 
     } else if (text === 'Year'){    
         if (numberOfYears > 0){
+            
             averageSpending = totalSpentYear / numberOfYears;
+            
         }
 
     }
@@ -299,8 +291,189 @@ totalSpendingWeek.innerText = totalSpentWeek;
 totalSpendingMonth.innerText = totalSpentMonth;
 totalSpendingYear.innerText = totalSpentYear;
 
+//Comparing Total Spending 
 
+//Day Chart
+const chartDay = document.getElementById('totalSpendingCompareDay').getContext('2d');
+var labelsDay = ['Yesterday', 'Today'];
+var dataDay = [totalSpentLastDay, totalSpentDay];
 
+new Chart(chartDay, {
+    type: 'bar',
 
+    data: {
+        labels: labelsDay,
+        datasets: [{
+            label: 'Spending',
+            data: dataDay,
+            backgroundColor: 'rgb(0,0,0)',
+        }]
+    },
+    options: {
+        maintainAspectRatio: false,
+        responsive: true, 
+        scales: {
+            x: {
+                
+                grid: {
+                    display: false
+                }
+                
+            },
+            y: {
+                
+                grid: {
+                    display: true
+                }
+            }
+        }, 
+        plugins: {
+            tooltip: {
+                animation: {
+                    duration: 150
+                },
+                displayColors: false
+            }
+        }
+    }
+
+})
+
+//Week Chart
+const chartWeek = document.getElementById('totalSpendingCompareWeek').getContext('2d');
+var labelsWeek = ['Last Week', 'This Week'];
+var dataWeek = [totalSpentLastWeek, totalSpentWeek];
+
+new Chart(chartWeek, {
+    type: 'bar',
+
+    data: {
+        labels: labelsWeek,
+        datasets: [{
+            label: 'Spending',
+            data: dataWeek,
+            backgroundColor: 'rgb(0,0,0)',
+        }]
+    },
+    options: {
+        maintainAspectRatio: false,
+        responsive: true, 
+        scales: {
+            x: {
+                
+                grid: {
+                    display: false
+                }
+                
+            },
+            y: {
+                
+                grid: {
+                    display: true
+                }
+            }
+        }, 
+        plugins: {
+            tooltip: {
+                animation: {
+                    duration: 150
+                },
+                displayColors: false
+            }
+        }
+    }
+})
+
+//Month Chart
+const chartMonth = document.getElementById('totalSpendingCompareMonth').getContext('2d');
+var labelsMonth = ['Last Month', 'This Month'];
+var dataMonth = [totalSpentLastMonth, totalSpentMonth];
+
+new Chart(chartMonth, {
+    type: 'bar',
+
+    data: {
+        labels: labelsMonth,
+        datasets: [{
+            label: 'Spending',
+            data: dataMonth,
+            backgroundColor: 'rgb(0,0,0)',
+        }]
+    },
+    options: {
+        maintainAspectRatio: false,
+        responsive: true, 
+        scales: {
+            x: {
+                
+                grid: {
+                    display: false
+                }
+                
+            },
+            y: {
+                
+                grid: {
+                    display: true
+                }
+            }
+        }, 
+        plugins: {
+            tooltip: {
+                animation: {
+                    duration: 150
+                },
+                displayColors: false
+            }
+        }
+    }
+
+})
+
+//Year Chart
+const chartYear = document.getElementById('totalSpendingCompareYear').getContext('2d');
+var labelsYear = ['Last Year', 'This Year'];
+var dataMonth = [totalSpentLastYear, totalSpentYear];
+
+new Chart(chartYear, {
+    type: 'bar',
+
+    data: {
+        labels: labelsYear,
+        datasets: [{
+            label: 'Spending',
+            data: dataMonth,
+            backgroundColor: 'rgb(0,0,0)',
+        }]
+    },
+    options: {
+        maintainAspectRatio: false,
+        responsive: true, 
+        scales: {
+            x: {
+                
+                grid: {
+                    display: false
+                }
+                
+            },
+            y: {
+                
+                grid: {
+                    display: true
+                }
+            }
+        }, 
+        plugins: {
+            tooltip: {
+                animation: {
+                    duration: 150
+                },
+                displayColors: false
+            }
+        }
+    }
+
+})
 
 
