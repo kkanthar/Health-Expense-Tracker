@@ -252,6 +252,9 @@ new Chart(ctx, {
         }]
     }, 
     options: {
+        circumference: 180, 
+        rotation: -90,
+        cutout: '60%',
         maintainAspectRatio: false,
         responsive: true, 
         scales: {
@@ -297,7 +300,23 @@ totalSpendingYear.innerText = totalSpentYear;
 const chartDay = document.getElementById('totalSpendingCompareDay').getContext('2d');
 var labelsDay = ['Yesterday', 'Today'];
 var dataDay = [totalSpentLastDay, totalSpentDay];
+let colorsDay;
+if (totalSpentLastDay == 0){
+    dataDay.splice(0, 1);
+    labelsDay.splice(0, 1);
+}
 
+if (totalSpentLastDay <= totalSpentDay && totalSpentLastDay != 0){
+    var percentage = (totalSpentDay / totalSpentLastDay)-1;
+    colorsDay = ['rgb(230, 230, 230)', `rgba(200,0,0,${percentage})`];
+    totalSpendingDay.style.color = "rgb(100,0,0)";
+}else if (totalSpentLastDay > totalSpentDay){
+    var percentage = 1 - Math.abs(totalSpentDay / totalSpentLastDay);
+    colorsDay = ['rgb(230, 230, 230)', `rgba(0,200,0,${percentage})`];
+    totalSpendingDay.style.color = "rgb(0,100,0)";
+} else {
+    colorsDay = 'rgb(0,0,0)';
+}
 new Chart(chartDay, {
     type: 'bar',
 
@@ -306,12 +325,16 @@ new Chart(chartDay, {
         datasets: [{
             label: 'Spending',
             data: dataDay,
-            backgroundColor: 'rgb(0,0,0)',
+            backgroundColor: colorsDay,
         }]
     },
     options: {
         maintainAspectRatio: false,
         responsive: true, 
+        interaction: {
+            intersect: false,
+            mode: "x"
+        },
         scales: {
             x: {
                 
@@ -328,6 +351,11 @@ new Chart(chartDay, {
             }
         }, 
         plugins: {
+            
+            legend: {
+                display: false
+            },
+            
             tooltip: {
                 animation: {
                     duration: 150
@@ -343,6 +371,24 @@ new Chart(chartDay, {
 const chartWeek = document.getElementById('totalSpendingCompareWeek').getContext('2d');
 var labelsWeek = ['Last Week', 'This Week'];
 var dataWeek = [totalSpentLastWeek, totalSpentWeek];
+let colorsWeek;
+
+if (totalSpentLastWeek == 0){
+    dataWeek.splice(0, 1);
+    labelsWeek.splice(0, 1);
+}
+
+if (totalSpentLastWeek <= totalSpentWeek && totalSpentLastWeek != 0){
+    var percentage = (totalSpentWeek / totalSpentLastWeek)-1;
+    colorsWeek = ['rgb(230, 230, 230)', `rgba(200,0,0,${percentage})`];
+    totalSpendingWeek.style.color = "rgb(200,0,0)";
+}else if (totalSpentLastWeek > totalSpentWeek){
+    var percentage = 1 - Math.abs(totalSpentWeek / totalSpentLastWeek);
+    colorsWeek = ['rgb(230, 230, 230)', `rgba(0,200,0,${percentage})`];
+    totalSpendingWeek.style.color = "rgb(0,100,0)";
+} else {
+    colorsWeek = "rgb(0,0,0)";
+}
 
 new Chart(chartWeek, {
     type: 'bar',
@@ -352,12 +398,16 @@ new Chart(chartWeek, {
         datasets: [{
             label: 'Spending',
             data: dataWeek,
-            backgroundColor: 'rgb(0,0,0)',
+            backgroundColor: colorsWeek,
         }]
     },
     options: {
         maintainAspectRatio: false,
         responsive: true, 
+        interaction: {
+            intersect: false,
+            mode: "x"
+        },
         scales: {
             x: {
                 
@@ -374,6 +424,9 @@ new Chart(chartWeek, {
             }
         }, 
         plugins: {
+            legend: {
+                display: false
+            },
             tooltip: {
                 animation: {
                     duration: 150
@@ -388,6 +441,23 @@ new Chart(chartWeek, {
 const chartMonth = document.getElementById('totalSpendingCompareMonth').getContext('2d');
 var labelsMonth = ['Last Month', 'This Month'];
 var dataMonth = [totalSpentLastMonth, totalSpentMonth];
+let colorsMonth;
+
+if (totalSpentLastMonth == 0){
+    dataMonth.splice(0, 1);
+    labelsMonth.splice(0, 1);
+}
+if (totalSpentLastMonth <= totalSpentMonth && totalSpentLastMonth != 0){
+    var percentage = (totalSpentMonth / totalSpentLastMonth)-1;
+    colorsMonth = ['rgb(230, 230, 230)', `rgba(200,0,0,${percentage})`];
+    totalSpendingMonth.style.color = "rgb(200,0,0)";
+}else if (totalSpentLastMonth > totalSpentMonth){
+    var percentage = 1 - Math.abs(totalSpentMonth / totalSpentLastMonth);
+    colorsMonth = ['rgb(230, 230, 230)', `rgba(0,200,0,${percentage})`];
+    totalSpendingMonth.style.color = "rgb(0,100,0)";
+} else {
+    colorsMonth = "rgb(0,0,0)";
+}
 
 new Chart(chartMonth, {
     type: 'bar',
@@ -397,12 +467,16 @@ new Chart(chartMonth, {
         datasets: [{
             label: 'Spending',
             data: dataMonth,
-            backgroundColor: 'rgb(0,0,0)',
+            backgroundColor: colorsMonth,
         }]
     },
     options: {
         maintainAspectRatio: false,
         responsive: true, 
+        interaction: {
+            intersect: false,
+            mode: "x"
+        },
         scales: {
             x: {
                 
@@ -419,6 +493,10 @@ new Chart(chartMonth, {
             }
         }, 
         plugins: {
+
+            legend: {
+                display: false
+            },
             tooltip: {
                 animation: {
                     duration: 150
@@ -433,7 +511,25 @@ new Chart(chartMonth, {
 //Year Chart
 const chartYear = document.getElementById('totalSpendingCompareYear').getContext('2d');
 var labelsYear = ['Last Year', 'This Year'];
-var dataMonth = [totalSpentLastYear, totalSpentYear];
+var dataYear = [totalSpentLastYear, totalSpentYear];
+let colorsYear;
+
+if (totalSpentLastYear == 0){
+    dataYear.splice(0, 1);
+    labelsYear.splice(0, 1);
+}
+
+if (totalSpentLastYear <= totalSpentYear && totalSpentLastYear != 0){
+    var percentage = (totalSpentYear / totalSpentLastYear)-1;
+    colorsYear = ['rgb(230, 230, 230)', `rgba(200,0,0,${percentage})`];
+    totalSpendingYear.style.color = "rgb(200,0,0)";
+}else if (totalSpentLastYear > totalSpentYear){
+    var percentage = 1 - Math.abs(totalSpentYear / totalSpentLastYear);
+    colorsYear = ['rgb(230, 230, 230)', `rgba(0,200,0,${percentage})`];
+    totalSpendingYear.style.color = "rgb(0,100,0)";
+} else {
+    colorsYear = "rgb(0,0,0)";
+}
 
 new Chart(chartYear, {
     type: 'bar',
@@ -442,13 +538,17 @@ new Chart(chartYear, {
         labels: labelsYear,
         datasets: [{
             label: 'Spending',
-            data: dataMonth,
-            backgroundColor: 'rgb(0,0,0)',
+            data: dataYear,
+            backgroundColor: colorsYear,
         }]
     },
     options: {
         maintainAspectRatio: false,
         responsive: true, 
+        interaction: {
+            intersect: false,
+            mode: "x"
+        },
         scales: {
             x: {
                 
@@ -465,6 +565,10 @@ new Chart(chartYear, {
             }
         }, 
         plugins: {
+
+            legend: {
+                display: false
+            },
             tooltip: {
                 animation: {
                     duration: 150

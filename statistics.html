@@ -42,6 +42,10 @@
                             <p onclick = "changeButtonText('Year'); calculateAverageSpending('Year')"> Year </p>
                         </div>
                     </div>
+                    <div class = "tooltip-container">
+                        <img src = "icons/info-icon.svg" class = "info-icon" id = 'tooltipIconAvgSpending'>
+                        <p class = "tooltip-avgspending" id = "tooltipAvgSpending">Average spending per month is calculated by dividing the total spending for the current calendar year by the number of months that have passed</p>
+                    </div>
                 </div>
 
                 <div class = "average-spending-box">
@@ -50,8 +54,14 @@
             </section>
 
             <section> 
-                <h2> Spending Distribution </h2>
-                <div style = "width: 100vw; margin: auto">
+                <div class = "spending-distribution-header">
+                    <h2> Spending Distribution </h2>
+                    <div class = "tooltip-container">
+                        <img src = "icons/info-icon.svg" class = "info-icon" id = 'tooltipSpendingDistribution'>
+                        <p class = "tooltip-spendingdistri" id = "tooltipSpendingDistri">Tip: Click on the labels at the top to hide specific types of expenses.</p>
+                    </div>
+                </div>
+                <div style = "width: 70vw; margin: auto">
                     <canvas width = "500vw" id ="spendingDistribution">Your browser does not support the canvas element.</canvas>
                 </div>
             </section>

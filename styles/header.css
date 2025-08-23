@@ -2,12 +2,14 @@ header {
     display: flex;
     position: fixed; 
     background-color: rgb(0, 59, 70); 
+    box-shadow: 0px 0px 2px black;
     top: 0; 
     right: 0;
     left: 0; 
     height: 42px;
     align-items: center;
     justify-content:space-around;
+    z-index: 1000;
     
 }
 

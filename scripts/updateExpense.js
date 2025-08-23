@@ -4,11 +4,14 @@ window.addEventListener("DOMContentLoaded", () => {
     const index = parseInt(localStorage.getItem('healthTrack.selectedExpenseIndex'));
     const expenses = JSON.parse(localStorage.getItem("healthTrack.user.expenseData"));
 
-    const expenseDateValue = document.getElementById('expenseDate');
-    const [year, month, day] = expenseDateValue.split('-').map(Number);
-    const expenseDate = new Date(year, month - 1, day);
-    const timestamp = expenseDate.getTime();
+
     updateExpenseButton.addEventListener('click', () => {
+
+        //To reformat date so that it doesnt change time zones i.e. initially when inputting date, it is set at 12:00pm Universel Time, but when reconverting it will switch to est (a day back)
+        const expenseDateValue = document.getElementById('expenseDate').value;
+        const [year, month, day] = expenseDateValue.split('-').map(Number);
+        const expenseDate = new Date(year, month - 1, day);
+        const timestamp = expenseDate.getTime();
 
         const updatedExpense = {
             type: document.getElementById("dropdownButton").value,

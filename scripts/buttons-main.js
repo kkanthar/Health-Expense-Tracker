@@ -52,13 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
 
-    //Remove an Expense
+    //Edit an Expense
     const expenses = JSON.parse(localStorage.getItem("healthTrack.user.expenseData"))
     
     const editExpense = document.getElementById('editExpense');
     const exitEditExpenseButton =  document.getElementById('exitEditExpense');
     const expenseContainer = document.getElementById('expenseContainer');
 
+    //Opening Window
     expenseContainer.addEventListener('click', (event) => {
         const clickedExpense = event.target.closest('.expense-template');
 
@@ -83,9 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             backdropCover.style.display = "block";
+            document.body.style.overflow = 'hidden';
+            
         }
     })
 
+    //Exiting Edit Expense
     exitEditExpenseButton.addEventListener('click', () => {
         editExpense.style.display = "none";
         exitEditExpenseButton.style.display = "none";
