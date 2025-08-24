@@ -2,6 +2,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 
+    //Nav Button Change Theme
+    const navMyExpenseButton = document.getElementById('navButtonMyExpense');
+    navMyExpenseButton.style.borderTopWidth = "6px";
+    navMyExpenseButton.style.filter = "invert(1) brightness(30%)";
+
 
     //Add an Expense
 

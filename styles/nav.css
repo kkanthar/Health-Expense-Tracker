@@ -45,3 +45,22 @@ nav button {
 nav button:active{
     background-color: lightgray;
 }
+
+.button-myexpense{
+    border-top-width: 0px;
+    border-top-style: solid;
+    border-top-color: rgba(0, 0, 0, 0.89);
+    border-top-right-radius: 0px;
+    filter: invert(1) brightness(60%);
+}
+
+.button-stats{
+
+    border-top-width: 0px;
+    border-top-style: solid;
+    border-top-color: rgba(0, 0, 0, 0.89);
+    filter: invert(1) brightness(60%);
+
+}
+
+

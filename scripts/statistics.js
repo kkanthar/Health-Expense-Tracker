@@ -23,6 +23,7 @@ function sameWeek(now, dateToCheck){
     const startOfWeek = new Date(now);
     startOfWeek.setDate(now.getDate() - now.getDay());
     startOfWeek.setHours(0, 0, 0, 0);
+    
     const endOfWeek = new Date(startOfWeek);
     endOfWeek.setDate(startOfWeek.getDate() + 7);
 
@@ -68,6 +69,7 @@ expensesData.forEach(expense => {
     }
     if (sameWeek(now, date)){
         totalSpentWeek += amount;
+        
     }
     if (now.getMonth() === date.getMonth() && now.getFullYear() === date.getFullYear()){
         totalSpentMonth += amount;
@@ -256,8 +258,9 @@ new Chart(ctx, {
         rotation: -90,
         cutout: '60%',
         maintainAspectRatio: false,
-        responsive: true, 
+        responsive: true,
         scales: {
+            
             x: {
                 display: false,
                 grid: {
@@ -273,7 +276,23 @@ new Chart(ctx, {
             }
         }, 
         plugins: {
+            locale: 'en-US',
             tooltip: {
+                callbacks: {
+                    label: (context) => {
+                        const value = context.parsed;
+                        let label;
+                        if ((value) !== null){
+                            label = new Intl.NumberFormat('en-US', {
+                                style: 'currency',
+                                currency: 'CAD',
+                                maximumSignificantDigits: 3
+                            }).format(value)
+                        }
+                        return label
+                        
+                    }
+                },
                 animation: {
                     duration: 150
                 },
@@ -329,8 +348,11 @@ new Chart(chartDay, {
         }]
     },
     options: {
+        locale: 'en-US',
+
         maintainAspectRatio: false,
         responsive: true, 
+        borderRadius: 10,
         interaction: {
             intersect: false,
             mode: "x"
@@ -347,6 +369,16 @@ new Chart(chartDay, {
                 
                 grid: {
                     display: true
+                },
+                ticks: {
+                    callback: ((value) => {
+                        return new Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: 'CAD',
+                            maximumSignificantDigits: 3
+                            
+                        }).format(value)
+                    })
                 }
             }
         }, 
@@ -357,6 +389,22 @@ new Chart(chartDay, {
             },
             
             tooltip: {
+                callbacks: {
+                    label: (context) => {
+                        
+                        const value = context.parsed.y;
+                        let label;
+                        if ((value) !== null){
+                            label = new Intl.NumberFormat('en-US', {
+                                style: 'currency',
+                                currency: 'CAD',
+                                maximumSignificantDigits: 3
+                            }).format(value)
+                        }
+                        return label
+                        
+                    }
+                },
                 animation: {
                     duration: 150
                 },
@@ -391,8 +439,8 @@ if (totalSpentLastWeek <= totalSpentWeek && totalSpentLastWeek != 0){
 }
 
 new Chart(chartWeek, {
+    
     type: 'bar',
-
     data: {
         labels: labelsWeek,
         datasets: [{
@@ -402,6 +450,8 @@ new Chart(chartWeek, {
         }]
     },
     options: {
+        locale: 'en-US',
+        borderRadius: 10,
         maintainAspectRatio: false,
         responsive: true, 
         interaction: {
@@ -420,6 +470,16 @@ new Chart(chartWeek, {
                 
                 grid: {
                     display: true
+                },
+                ticks: {
+                    callback: ((value) => {
+                        return new Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: 'CAD',
+                            maximumSignificantDigits: 3
+                            
+                        }).format(value)
+                    })
                 }
             }
         }, 
@@ -428,6 +488,22 @@ new Chart(chartWeek, {
                 display: false
             },
             tooltip: {
+                callbacks: {
+                    label: (context) => {
+                        
+                        const value = context.parsed.y;
+                        let label;
+                        if ((value) !== null){
+                            label = new Intl.NumberFormat('en-US', {
+                                style: 'currency',
+                                currency: 'CAD',
+                                maximumSignificantDigits: 3
+                            }).format(value)
+                        }
+                        return label
+                        
+                    }
+                },
                 animation: {
                     duration: 150
                 },
@@ -471,6 +547,8 @@ new Chart(chartMonth, {
         }]
     },
     options: {
+        locale: 'en-US',
+        borderRadius: 10,
         maintainAspectRatio: false,
         responsive: true, 
         interaction: {
@@ -489,6 +567,17 @@ new Chart(chartMonth, {
                 
                 grid: {
                     display: true
+                },
+
+                ticks: {
+                    callback: ((value) => {
+                        return new Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: 'CAD',
+                            maximumSignificantDigits: 3
+                            
+                        }).format(value)
+                    })
                 }
             }
         }, 
@@ -498,6 +587,23 @@ new Chart(chartMonth, {
                 display: false
             },
             tooltip: {
+
+                callbacks: {
+                    label: (context) => {
+                        
+                        const value = context.parsed.y;
+                        let label;
+                        if ((value) !== null){
+                            label = new Intl.NumberFormat('en-US', {
+                                style: 'currency',
+                                currency: 'CAD',
+                                maximumSignificantDigits: 3
+                            }).format(value)
+                        }
+                        return label
+                        
+                    }
+                },
                 animation: {
                     duration: 150
                 },
@@ -543,6 +649,8 @@ new Chart(chartYear, {
         }]
     },
     options: {
+        locale: 'en-US',
+        borderRadius: 10,
         maintainAspectRatio: false,
         responsive: true, 
         interaction: {
@@ -558,6 +666,17 @@ new Chart(chartYear, {
                 
             },
             y: {
+
+                ticks: {
+                    callback: ((value) => {
+                        return new Intl.NumberFormat('en-US', {
+                            style: 'currency',
+                            currency: 'CAD',
+                            maximumSignificantDigits: 3
+                            
+                        }).format(value)
+                    })
+                },
                 
                 grid: {
                     display: true
@@ -570,6 +689,23 @@ new Chart(chartYear, {
                 display: false
             },
             tooltip: {
+
+                callbacks: {
+                    label: (context) => {
+                        
+                        const value = context.parsed.y;
+                        let label;
+                        if ((value) !== null){
+                            label = new Intl.NumberFormat('en-US', {
+                                style: 'currency',
+                                currency: 'CAD',
+                                maximumSignificantDigits: 3
+                            }).format(value)
+                        }
+                        return label
+                        
+                    }
+                },
                 animation: {
                     duration: 150
                 },

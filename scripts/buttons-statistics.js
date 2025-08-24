@@ -1,14 +1,24 @@
+
+
+//Nav Button Change Theme
+const navButtonMyStats = document.getElementById('navButtonMyStats');
+navButtonMyStats.style.borderTopWidth = "6px";
+navButtonMyStats.style.filter = "invert(1) brightness(30%)";
+
 const dropdownButton = document.getElementById('dropdownButtonPeriod');
 const dropdownContent = document.getElementById('dropdownPeriodContent');
 
 //Tooltip Average Spending
-const tooltipIconAvgSpending = document.getElementById('tooltipIconAvgSpending');
+const tooltipContainerAvgSpending = document.getElementById('tooltipContainerAvgSpending');
 const tooltipAvgSpending = document.getElementById('tooltipAvgSpending');
 
 //Tooltip Spending Distribution
 const tooltipIconSpendDistri = document.getElementById('tooltipSpendingDistribution');
 const tooltipSpendDistri = document.getElementById('tooltipSpendingDistri');
 
+//Tooltip Total Spending Weekly
+const tooltipIconTotalSpendingWeek = document.getElementById('tooltipIconTotalSpendingWeek');
+const tooltipTotalSpendingWeek = document.getElementById('tooltipTotalSpendingWeek')
 
 dropdownButton.addEventListener('click', () => {
 
@@ -42,22 +52,23 @@ function changeButtonText(text){
 }
 
 //Tooltip Display Average Spending
-tooltipIconAvgSpending.addEventListener('mouseover', () => {
-    
+tooltipContainerAvgSpending.addEventListener('mouseover', () => {
     tooltipAvgSpending.style.display = "block";
     
 
 })
 
-tooltipIconAvgSpending.addEventListener('mouseout', () => {
+tooltipContainerAvgSpending.addEventListener('mouseout', () => {
     setTimeout(() => {
     tooltipAvgSpending.style.display = "none";
     }, 2000)
 })
 
 //Tooltip Display Spending Distribution
+
 tooltipIconSpendDistri.addEventListener('mouseover', () => {
-    tooltipSpendDistri.style.display = "block";    
+    tooltipSpendDistri.style.display = "block"; 
+
 })
 
 tooltipIconSpendDistri.addEventListener('mouseout', () => {
@@ -66,5 +77,16 @@ tooltipIconSpendDistri.addEventListener('mouseout', () => {
     }, 2000)
 })
 
+//Tooltip Total Spending Week
+
+tooltipIconTotalSpendingWeek.addEventListener('mouseover', () => {
+    tooltipTotalSpendingWeek.style.display = "block";    
+})
+
+tooltipIconTotalSpendingWeek.addEventListener('mouseout', () => {
+    setTimeout(() => {
+    tooltipTotalSpendingWeek.style.display = "none";
+    }, 2000)
+})
 
 

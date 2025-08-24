@@ -96,7 +96,7 @@ h2 {
     align-items: center;
 }
 
-.info-icon{
+.info-icon, .info-icon-totalSpending{
     width: 18px;
     margin-left: 0.5vw;
     margin-top: 0.5vh;
@@ -104,15 +104,18 @@ h2 {
 
     filter: brightness(0.5)
 }
-.info-icon:hover{
+.info-icon:hover, .info-icon-totalSpending:hover{
     filter: brightness(0);
 }
 
-.tooltip-avgspending, .tooltip-spendingdistri{
+.info-icon-totalSpending{
+    margin-top: 0px;
+    padding: 0px 10px;
+}
+
+.tooltip-avgspending, .tooltip-spendingdistri, .tooltip-totalspending{
     display: none;
     position: absolute;
-
-    
 
  
     margin-top: 0.5vh;
@@ -126,12 +129,19 @@ h2 {
     font-family: Arial;
     color: rgb(101, 101, 101);
     background-color: rgba(230, 230, 230, 0.8);
+    z-index: 100;
     
 
 }
 
+.tooltip-totalspending{
+    left: 0px;
+    right: 40px;
+
+}
+
 .tooltip-avgspending{
-    left: 450px;
+    left: 460px;
    
 }
 

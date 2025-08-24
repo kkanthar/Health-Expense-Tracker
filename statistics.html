@@ -4,6 +4,8 @@
     <head> 
 
         <title> My Statistics </title>
+        <link rel="icon" type = "icon" href = "/Logos/favicon.ico">
+
 
         <link rel = "stylesheet" href = "styles/header.css">
         <link rel = "stylesheet" href = "styles/nav.css">
@@ -42,7 +44,7 @@
                             <p onclick = "changeButtonText('Year'); calculateAverageSpending('Year')"> Year </p>
                         </div>
                     </div>
-                    <div class = "tooltip-container">
+                    <div class = "tooltip-container" id = "tooltipContainerAvgSpending">
                         <img src = "icons/info-icon.svg" class = "info-icon" id = 'tooltipIconAvgSpending'>
                         <p class = "tooltip-avgspending" id = "tooltipAvgSpending">Average spending per month is calculated by dividing the total spending for the current calendar year by the number of months that have passed</p>
                     </div>
@@ -88,6 +90,10 @@
 
                         <div class = "total-spending-subheading">
                             <p class = "total-spending-subheading-title">This Week</p>
+                            <div class = "tooltip-container" id = "tooltipContainerTotalSpendingWeek">
+                                <p class = "tooltip-totalspending" id = "tooltipTotalSpendingWeek">For total spending, a week is considered from Sunday to Saturday</p>
+                                <img src = "icons/info-icon.svg" class = "info-icon-totalSpending" id = 'tooltipIconTotalSpendingWeek'>
+                            </div>
                         </div>
                         <div class = "total-spending-input-container">
                             <p class = "total-spending-input" id = "totalSpendingInputWeek"></p>
@@ -137,8 +143,8 @@
 
 
         <nav>
-            <a href = "index.html"> <button id = "navButton">My Expenses</button></a>
-            <a href = "statistics.html"><button id = "navButton">Stats</button></a>
+            <a href = "index.html"> <button id = "navButtonMyExpense" class = "button-myexpense"><img class = "nav-money-icon" src = "icons/nav-money-icon.svg"></button></a>
+            <a href = "statistics.html"><button id = "navButtonMyStats" class = "button-stats"><img class = "nav-stats-icon" src = "icons/nav-stats-icon.svg"></button></a>
         </nav>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src = "scripts/buttons-statistics.js"></script>
